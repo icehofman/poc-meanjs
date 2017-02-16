@@ -75,3 +75,9 @@ mongod
 
 # Vagrant
 .vagrant/
+
+# Mongodb volume
+mongodb/
+
+# Visual Studio Code
+.vscode/

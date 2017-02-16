@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li><a href="#posts">Posts</a></li>
+        <li><a class="active">{{post.title}}</a></li>
+    </ol>
+</div>
+
+
+<div class="container">
+    <form name="editForm">
+        <div class="row" style="margin-bottom: 20px">
+            <div class="input-group">
+                <span class="input-group-addon">title</span>
+                <input type="text" class="form-control" ng-model="post.title" required="true" placeholder="Title required">
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 20px">
+            <div class="input-group">
+                <span class="input-group-addon">by</span>
+                <input type="text" class="form-control" ng-model="post.author" required="true" placeholder="Author required">
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 20px">
+            <p class="alert alert-danger" ng-show="saveError">Network error</p>
+            <p class="alert alert-danger" ng-show="saveGhostWrite">Conflict: the post has been modified and you cannot overwrite it, please reload.</p>
+            <div class="btn-group pull-right">
+                
+                <button type="button" class="btn btn-danger" ng-click="cancel()">Cancel</button>
+                <input type="submit" class="btn btn-info" ng-click="save()" ng-disabled="!editForm.$valid">
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 20px">
+            <div class="input-group">
+                <span class="input-group-addon">summary</span>
+                <textarea type="text" class="form-control" ng-model="post.summary" required="true" placeholder="Summary required"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div text-angular ng-model="post.content"></div>
+        </div>
+    </form>
+</div>
